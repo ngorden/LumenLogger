@@ -20,7 +20,7 @@ namespace lumen
 		log_sinks[0]->set_pattern(config.stdout_format);
 		log_sinks[1]->set_pattern(config.file_format);
 
-		s_core_logger = std::make_shared<spdlog::logger>(config.log_filename, log_sinks.begin(), log_sinks.end());
+		s_core_logger = std::make_shared<spdlog::logger>(config.log_name, log_sinks.begin(), log_sinks.end());
 		spdlog::register_logger(s_core_logger);
 		s_core_logger->set_level(spdlog::level::trace);
 		s_core_logger->flush_on(spdlog::level::trace);
