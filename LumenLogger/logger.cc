@@ -1,8 +1,8 @@
-﻿#include "logger.h"
+﻿#include "lumen_logger/logger.h"
 
-#include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/spdlog.h>
 #include <vector>
 
 namespace lumen
@@ -11,7 +11,7 @@ namespace lumen
 	std::shared_ptr<spdlog::logger> logger::s_debug_logger;
 	std::shared_ptr<spdlog::logger> logger::s_verbose_logger;
 
-	void logger::init(const logger_configuration& config)
+	void logger::init(const logger_configuration &config)
 	{
 		std::vector<spdlog::sink_ptr> log_sinks;
 		log_sinks.emplace_back(std::make_shared<spdlog::sinks::stdout_color_sink_mt>());
